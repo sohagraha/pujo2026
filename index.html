@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>শুড়িগাতী সার্বজনীন দূর্গা মন্দির</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Serif+Bengali:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf1;--bg2:#fff1d8;--card:#fffdf9;--ink:#321712;--mute:#806458;--red:#a8201b;--gold:#d99a19;--saffron:#e65d24;--line:#efd9b7;--hero1:#70130f;--hero2:#bd3a1d;--shadow:0 14px 34px #68170d14;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1210;--bg2:#251713;--card:#2c1d18;--ink:#f8eadb;--mute:#c2a898;--red:#ff7b66;--gold:#f2bb43;--line:#4b362c;--hero1:#5e120c;--hero2:#9b3512}}
+:root[data-theme="dark"]{--bg:#1c1210;--bg2:#251713;--card:#2c1d18;--ink:#f8eadb;--mute:#c2a898;--red:#ff7b66;--gold:#f2bb43;--line:#4b362c;--hero1:#5e120c;--hero2:#9b3512}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:"Noto Serif Bengali","Hind Siliguri",serif;margin:0}
+a{color:inherit;text-decoration:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+/* nav */
+header{position:sticky;top:0;z-index:10;background:#5e100deF;color:#fff3dc;box-shadow:0 2px 18px #0005;backdrop-filter:blur(12px)}
+.bar{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 22px}
+.logo{font-weight:700;font-size:18px;color:#ffd978;letter-spacing:.1px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{padding:6px 12px;border-radius:20px;font-size:15px}
+nav a:hover{background:#ffffff22}
+#burger{display:none;background:none;border:0;color:#fff3dc;font-size:26px;cursor:pointer}
+@media(max-width:760px){#burger{display:block}nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--hero1);flex-direction:column;padding:8px 16px 14px}nav.open{display:flex}}
+/* hero */
+.hero{background:radial-gradient(circle at 50% -10%,#ed7b32,var(--hero2) 34%,var(--hero1) 82%);color:#fff3dc;text-align:center;padding:90px 16px 105px;position:relative;overflow:hidden}
+.hero:before{content:"শ্রী শ্রী দুর্গা";position:absolute;top:22px;left:50%;transform:translateX(-50%);font-family:"Noto Serif Bengali",serif;font-size:15px;letter-spacing:4px;color:#ffd978;opacity:.8}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:repeating-linear-gradient(90deg,var(--gold) 0 18px,transparent 18px 26px)}
+.hero-art{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.mandala{position:absolute;left:50%;top:50%;width:min(72vw,560px);aspect-ratio:1;border:1px solid #ffd97855;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 18px #ffd9780b,0 0 0 38px #ffd97808,0 0 80px #ffb52b22;animation:mandalaSpin 32s linear infinite}
+.mandala:before,.mandala:after{content:"✦  ❖  ✦  ❖  ✦  ❖  ✦  ❖";position:absolute;inset:12%;border:1px dashed #ffd97855;border-radius:50%;display:grid;place-items:center;color:#ffd97899;font-size:20px;letter-spacing:16px}
+.mandala:after{inset:25%;transform:rotate(45deg);color:#fff3b088;font-size:15px;letter-spacing:10px}
+.aura{position:absolute;left:50%;top:47%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#ffd97855 0,#ff9e2d1f 38%,transparent 70%);transform:translate(-50%,-50%);animation:auraPulse 3s ease-in-out infinite}
+.hero-art:before,.hero-art:after{content:"";position:absolute;top:12%;left:50%;width:2px;height:75%;background:linear-gradient(180deg,transparent,#ffd97899,transparent);box-shadow:0 0 18px #ffd978;opacity:.35;transform-origin:50% 90%}
+.hero-art:before{transform:rotate(28deg);animation:rayPulse 4s ease-in-out infinite}
+.hero-art:after{transform:rotate(-28deg);animation:rayPulseLeft 4s 1s ease-in-out infinite}
+.hero>:not(.hero-art){position:relative;z-index:2}
+.trident{position:absolute;left:50%;bottom:28px;z-index:1;color:#ffd978;font-size:72px;text-shadow:0 0 8px #fff3ad,0 0 22px #ff8b22;transform:translateX(-50%);animation:tridentStrike 3.5s ease-in-out infinite}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe08a;box-shadow:0 0 12px #ffd978;animation:sparkFloat 3s linear infinite}
+.spark:nth-child(1){left:19%;bottom:23%;animation-delay:.4s}.spark:nth-child(2){left:29%;bottom:38%;animation-delay:1.2s}.spark:nth-child(3){right:23%;bottom:26%;animation-delay:1.8s}.spark:nth-child(4){right:34%;bottom:45%;animation-delay:2.3s}
+.petal{position:absolute;top:-20px;color:#ffb17c;font-size:18px;opacity:.8;animation:petalFall 8s linear infinite}
+.petal:nth-of-type(1){left:12%;animation-delay:1s}.petal:nth-of-type(2){left:38%;animation-delay:4s;font-size:13px}.petal:nth-of-type(3){right:17%;animation-delay:2.5s}.petal:nth-of-type(4){right:37%;animation-delay:6s;font-size:14px}
+.om{font-size:54px;animation:floatOm 3s ease-in-out infinite}
+.hero h1{font-size:clamp(30px,6vw,56px);line-height:1.3;margin:10px auto;color:#ffe08a;text-shadow:0 3px 18px #410b0880}
+.hero p{max-width:640px;margin:8px auto;font-size:18px}
+.dates{display:inline-block;margin-top:14px;padding:7px 20px;border:1px solid #ffd97899;border-radius:30px;color:#ffe08a;background:#5b100c55}
+.cd{display:flex;gap:10px;justify-content:center;margin-top:22px}
+.cd div{background:#00000033;border:1px solid #ffd97855;border-radius:12px;padding:8px 14px;min-width:70px}
+.cd b{display:block;font-size:28px;font-family:"Noto Serif Bengali",serif;color:#ffd978}
+.cd span{font-size:13px}
+.btn{display:inline-block;margin-top:28px;padding:11px 28px;background:linear-gradient(135deg,#ffd978,#e9a820);color:#3a1a10;font-weight:700;border-radius:30px;box-shadow:0 8px 18px #3b0e0a55;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #3b0e0a66}
+@keyframes floatOm{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes rayPulse{0%,100%{opacity:.18;transform:rotate(28deg) scaleY(.8)}50%{opacity:.55;transform:rotate(28deg) scaleY(1.1)}}
+@keyframes rayPulseLeft{0%,100%{opacity:.18;transform:rotate(-28deg) scaleY(.8)}50%{opacity:.55;transform:rotate(-28deg) scaleY(1.1)}}
+@keyframes tridentStrike{0%,65%,100%{transform:translateX(-50%) translateY(0) rotate(0)}72%{transform:translateX(-50%) translateY(-22px) rotate(-3deg)}80%{transform:translateX(-50%) translateY(0) rotate(0)}}
+@keyframes sparkFloat{0%{opacity:0;transform:translateY(35px) scale(.5)}25%{opacity:1}100%{opacity:0;transform:translateY(-100px) scale(1.4)}}
+@keyframes mandalaSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes auraPulse{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.85)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+@keyframes petalFall{0%{transform:translateY(-30px) rotate(0);opacity:0}12%{opacity:.9}50%{transform:translateY(310px) translateX(30px) rotate(180deg)}100%{transform:translateY(680px) translateX(-30px) rotate(360deg);opacity:0}}
+/* sections */
+section{padding:76px 16px}
+section:nth-of-type(even){background:var(--bg2)}
+.wrap{max-width:1100px;margin:auto}
+.title{text-align:center;font-size:clamp(26px,4vw,34px);color:var(--red);margin-bottom:6px}
+.sub{text-align:center;color:var(--mute);margin:0 auto 28px}
+.title:after{content:"❁";display:block;color:var(--gold);font-size:18px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 38px #68170d1f}
+.card h3{font-size:18px;color:var(--red);margin-bottom:4px}
+.map-link{display:inline-block;margin-top:8px;color:var(--red);font-weight:700}
+.map-link:hover{text-decoration:underline}
+.tl{max-width:720px;margin:auto;border-left:3px solid var(--gold);padding-left:18px}
+.tl div{position:relative;margin-bottom:18px}
+.tl div:before{content:"";position:absolute;left:-26px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--red);border:2px solid var(--gold)}
+.tl b{color:var(--red)}
+.qrbox{max-width:720px;margin:auto;text-align:center}
+.steps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:24px}
+.steps .card b{display:block;font-size:26px;color:var(--gold)}
+.sheetbox{max-width:1000px;margin:auto;overflow-x:auto}
+.sheet-tools{display:flex;gap:12px;align-items:center;margin:0 auto 18px;max-width:720px}
+.sheet-search{width:100%;padding:11px 16px;border:1px solid var(--line);border-radius:28px;background:var(--card);color:var(--ink);font:inherit;outline:none;box-shadow:0 5px 16px #68170d0b}
+.sheet-search:focus{border-color:var(--gold);box-shadow:0 0 0 3px #d99a1933}
+.sheet-sort{padding:11px 14px;border:1px solid var(--line);border-radius:28px;background:var(--card);color:var(--ink);font:inherit;outline:none;box-shadow:0 5px 16px #68170d0b}
+.sheet-status{text-align:center;color:var(--mute);margin:12px 0}
+.sheet-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.sheet-table th,.sheet-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+.sheet-table th{background:var(--hero1);color:#fff3dc;font-weight:700}
+.sheet-table tr:last-child td{border-bottom:0}
+.sheet-table tr:nth-child(even) td{background:var(--bg2)}
+.sheet-table td:before{content:none}
+.sheet-summary{text-align:center;color:var(--red);font-weight:700;margin:14px 0}
+.sheet-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.sheet-pagination button{padding:7px 16px;border:1px solid var(--red);border-radius:20px;background:transparent;color:var(--red);font:inherit;cursor:pointer}
+.sheet-pagination button:disabled{opacity:.45;cursor:not-allowed}
+.sheet-page-info{color:var(--mute)}
+.sheet-refresh{display:block;margin:16px auto 0;padding:8px 18px;border:1px solid var(--red);border-radius:20px;background:transparent;color:var(--red);font:inherit;cursor:pointer}
+.sheet-notice{margin:16px auto 0;text-align:center;color:var(--mute);font-size:14px}
+.offering-note{margin:24px 0 0;color:var(--red);font-size:18px;font-weight:700}
+footer{background:var(--hero1);color:#fff3dc;text-align:center;padding:28px 16px}
+footer small{color:#ffd978}
+@media(max-width:760px){.bar{padding:10px 16px}.logo{font-size:15px;max-width:78%}.hero{padding:76px 16px 88px}section{padding:58px 16px}.hero p{font-size:16px}.cd{gap:6px}.cd div{min-width:62px;padding:7px 9px}}
+@media(max-width:560px){.sheet-tools{display:block;margin-bottom:14px}.sheet-search{margin-bottom:8px}.sheet-sort{width:100%}.sheet-table th,.sheet-table td{padding:9px 10px;font-size:14px}.sheetbox{margin-left:-4px;margin-right:-4px}.sheet-summary{font-size:15px}.sheet-pagination button{padding:6px 13px}}
+@media(max-width:600px){
+  .sheetbox{overflow:visible}
+  .sheet-table,.sheet-table tbody,.sheet-table tr,.sheet-table td{display:block;width:100%}
+  .sheet-table{border:0;background:transparent;box-shadow:none}
+  .sheet-table thead{display:none}
+  .sheet-table tr{margin-bottom:14px;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 20px #68170d12}
+  .sheet-table tr:nth-child(even) td{background:transparent}
+  .sheet-table td{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:8px 0;border-bottom:1px dashed var(--line);white-space:normal;text-align:right;overflow-wrap:anywhere}
+  .sheet-table td:last-child{border-bottom:0}
+  .sheet-table td:before{content:attr(data-label);display:block;flex:0 0 40%;color:var(--red);font-weight:700;text-align:left}
+}
+@media(max-width:560px){.mandala{width:118vw}.aura{width:170px;height:170px}.trident{font-size:58px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a href="#home" class="logo" id="logo">🪔 শুড়িগাতী সার্বজনীন দূর্গা মন্দির</a>
+  <button id="burger" aria-label="মেনু">☰</button>
+  <nav id="nav">
+    <a href="#home">হোম</a><a href="#about">আমাদের কথা</a><a href="#program">অনুষ্ঠানসূচি</a><a href="#list">নিবেদনকারীদের তালিকা</a><a href="#chanda">নিবেদন</a><a href="#contact">যোগাযোগ</a>
+  </nav>
+</div></header>
+
+<div class="hero" id="home">
+  <div class="hero-art" aria-hidden="true">
+    <span class="mandala"></span><span class="aura"></span>
+    <span class="trident">🔱</span>
+    <i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i>
+    <i class="petal">✦</i><i class="petal">✦</i><i class="petal">✦</i><i class="petal">✦</i>
+  </div>
+  <div class="om">🔱</div>
+  <h1 id="h1">শুড়িগাতী সার্বজনীন দূর্গা মন্দির</h1>
+  <p>মায়ের আগমনে আনন্দে মেতে উঠুক সবার মন। আপনারা সবাই সপরিবারে আমন্ত্রিত।</p>
+  <div class="dates">১৭ – ২১ অক্টোবর ২০২৬ · ষষ্ঠী থেকে দশমী</div>
+  <div class="cd" id="cd"></div>
+  <a class="btn" href="#program">অনুষ্ঠানসূচি দেখুন</a>
+</div>
+
+<section id="about"><div class="wrap">
+  <h2 class="title">আমাদের কথা</h2>
+  <p class="sub">পাড়ার সবাই মিলে প্রতি বছর আমরা মায়ের আরাধনায় মেতে উঠি।</p>
+  <div class="grid">
+    <div class="card"><h3>🙏 পূজার ঐতিহ্য</h3>প্রতি বছর সবার অংশগ্রহণে ভক্তি ও আনন্দের সঙ্গে আমাদের পূজা অনুষ্ঠিত হয়।</div>
+    <div class="card"><h3>🎶 সাংস্কৃতিক অনুষ্ঠান</h3>গান, নাচ, আবৃত্তি ও ধুনুচি নাচে মুখর থাকে প্রতিটি সন্ধ্যা।</div>
+    <div class="card"><h3>🍛 প্রসাদ বিতরণ</h3>পূজা উপলক্ষে ভক্তদের জন্য প্রসাদ বিতরণের ব্যবস্থা থাকবে।</div>
+    <div class="card"><h3>🤝 সবার পূজা</h3>ধর্ম-বর্ণ নির্বিশেষে সবার জন্য উন্মুক্ত আমাদের মণ্ডপ।</div>
+  </div>
+</div></section>
+
+<section id="program"><div class="wrap">
+  <h2 class="title">অনুষ্ঠানসূচি</h2>
+  <p class="sub">সময় পরিবর্তন হলে মণ্ডপে জানিয়ে দেওয়া হবে।</p>
+  <div class="tl">
+    <div><b>ষষ্ঠী · ১৭ অক্টোবর</b><br>সন্ধ্যায় বোধন, দেবীর আমন্ত্রণ ও অধিবাস। রাতে আরতি।</div>
+    <div><b>সপ্তমী · ১৮ অক্টোবর</b><br>সকালে নবপত্রিকা স্নান ও প্রাণপ্রতিষ্ঠা, পুষ্পাঞ্জলি। সন্ধ্যায় সাংস্কৃতিক অনুষ্ঠান।</div>
+    <div><b>অষ্টমী · ১৯ অক্টোবর</b><br>সকালে পুষ্পাঞ্জলি, সন্ধিপূজা। দুপুরে প্রসাদ বিতরণ। সন্ধ্যায় ধুনুচি নাচ।</div>
+    <div><b>নবমী · ২০ অক্টোবর</b><br>মহানবমী পূজা ও হোম। দুপুরে প্রসাদ বিতরণ। রাতে গান ও নাটক।</div>
+    <div><b>দশমী · ২১ অক্টোবর</b><br>সিঁদুর খেলা, বরণ ও দেবীর বিসর্জন। বিজয়ার শুভেচ্ছা বিনিময়।</div>
+  </div>
+</div></section>
+
+<section id="list"><div class="wrap">
+  <h2 class="title">নিবেদনকারীদের তালিকা</h2>
+  <p class="sub">মন্দিরের উন্নয়নে সহযোগিতাকারীদের তালিকা</p>
+  <div class="sheetbox">
+    <div id="sheetStatus" class="sheet-status" hidden>তালিকা লোড হচ্ছে...</div>
+    <div class="sheet-tools">
+      <input id="sheetSearch" class="sheet-search" type="search" placeholder="নাম দিয়ে খুঁজুন..." aria-label="নিবেদনকারীর নাম দিয়ে খুঁজুন">
+      <select id="sheetSort" class="sheet-sort" aria-label="Amount অনুযায়ী সাজান">
+        <option value="none">সাজানো নেই</option>
+        <option value="desc">Amount: বেশি থেকে কম</option>
+        <option value="asc">Amount: কম থেকে বেশি</option>
+      </select>
+    </div>
+    <div id="sheetSummary" class="sheet-summary"></div>
+    <table id="sheetTable" class="sheet-table" hidden></table>
+    <div id="sheetPagination" class="sheet-pagination" hidden>
+      <button id="sheetPrevious" type="button">আগের</button>
+      <span id="sheetPageInfo" class="sheet-page-info"></span>
+      <button id="sheetNext" type="button">পরের</button>
+    </div>
+    <button id="sheetRefresh" class="sheet-refresh" type="button">তালিকা আবার লোড করুন</button>
+    <p class="sheet-notice">আপনার দানকৃত টাকা যদি এই তালিকায় না দেখেন, তাহলে মন্দির কমিটিকে অবহিত করুন।</p>
+  </div>
+</div></section>
+
+<section id="chanda"><div class="wrap qrbox">
+  <h2 class="title">মায়ের চরণে নিবেদন</h2>
+  <p class="sub">মন্দিরের উন্নয়নের জন্য আপনার দেওয়া নিবেদন তালিকায় সংরক্ষণ করা হবে।</p>
+  <div class="steps">
+    <div class="card"><b>১</b>মন্দিরের উন্নয়নের জন্য মায়ের চরণে নিবেদন রাখুন।</div>
+    <div class="card"><b>২</b>নিবেদনকারীর নাম, টাকার পরিমাণ ও ঠিকানা তালিকায় জমা হবে।</div>
+    <div class="card"><b>৩</b>উপরের নিবেদনকারীদের তালিকা থেকে জমা দেওয়া তথ্য দেখা যাবে।</div>
+  </div>
+  <p class="offering-note">যে কোনো দান সানন্দে গ্রহণ করা হবে।</p>
+  <p style="margin-top:20px;color:var(--mute)">আপনার সহযোগিতায় মন্দিরের উন্নয়ন আরও এগিয়ে যাবে। ধন্যবাদ।</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2 class="title">যোগাযোগ</h2>
+  <p class="sub">যে কোনো প্রয়োজনে কমিটির সদস্যদের সঙ্গে কথা বলুন।</p>
+  <div class="grid">
+    <div class="card"><h3>📍 মন্দিরের ঠিকানা</h3>শুড়িগাতী সার্বজনীন দূর্গা মন্দির<br><a class="map-link" href="https://www.google.com/maps/place/%E0%A6%B6%E0%A7%81%E0%A7%9C%E0%A6%BF%E0%A6%97%E0%A6%BE%E0%A6%A4%E0%A7%80+%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%AC%E0%A6%9C%E0%A6%A8%E0%A7%80%E0%A6%A8+%E0%A6%A6%E0%A7%82%E0%A6%B0%E0%A7%8D%E0%A6%97%E0%A6%BE+%E0%A6%AE%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%BF%E0%A6%B0/@22.8279623,89.7546082,17z/data=!4m6!3m5!1s0x39ffeddf25a53f9d:0xbf61c5ba62419609!8m2!3d22.828435!4d89.7541464!16s%2Fg%2F11fmwsp3xj?entry=ttu&amp;g_ep=EgoyMDI2MTAwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">📍 Google Maps-এ দেখুন</a></div>
+    <div class="card"><h3>📞 সভাপতি</h3>নাম: ______<br>ফোন: 01XXXXXXXXX</div>
+    <div class="card"><h3>📞 সাধারণ সম্পাদক</h3>নাম: ______<br>ফোন: 01XXXXXXXXX</div>
+  </div>
+</div></section>
+
+<footer>
+  <div>🪔 শুভ শারদীয়ার প্রীতি ও শুভেচ্ছা 🪔</div>
+  <small>শুড়িগাতী সার্বজনীন দূর্গা মন্দির · ২০২৬</small>
+</footer>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+$("burger").onclick=function(){$("nav").classList.toggle("open")};
+$("nav").onclick=function(){$("nav").classList.remove("open")};
+// countdown to Shashthi
+var target=new Date("2026-10-17T00:00:00+06:00");
+var bn=function(n){return String(n).replace(/\d/g,function(d){return "০১২৩৪৫৬৭৮৯"[d]})};
+function tick(){
+  var d=target-new Date();
+  if(d<=0){$("cd").innerHTML='<div><b>🎉</b><span>পূজা শুরু!</span></div>';return}
+  var t=[["দিন",Math.floor(d/864e5)],["ঘণ্টা",Math.floor(d/36e5)%24],["মিনিট",Math.floor(d/6e4)%60],["সেকেন্ড",Math.floor(d/1e3)%60]];
+  $("cd").innerHTML=t.map(function(x){return "<div><b>"+bn(x[1])+"</b><span>"+x[0]+"</span></div>"}).join("");
+}
+tick();setInterval(tick,1000);
+// Google Sheet list
+// Google Sheet: Share > General access > Anyone with the link > Viewer
+var SHEET_ID="1JxPZ0WGPi0kHncBANAXLjDOjgq7IQR9OYhMQeRy4PFU";
+var SHEET_GID="745766770";
+var sheetStatus=$("sheetStatus");
+var sheetTable=$("sheetTable");
+var sheetSummary=$("sheetSummary");
+var sheetPagination=$("sheetPagination");
+var sheetPrevious=$("sheetPrevious");
+var sheetNext=$("sheetNext");
+var sheetPageInfo=$("sheetPageInfo");
+var sheetSearch=$("sheetSearch");
+var sheetSort=$("sheetSort");
+var sheetRows=[],sheetColumns=[],sheetPage=1;
+var sheetFilteredRows=[];
+var sheetPageSize=10;
+var csvCell=function(value){
+  var text=String(value==null?"":value).trim();
+  return text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+};
+function parseCsv(text){
+  var rows=[],row=[],value="",quoted=false;
+  for(var i=0;i<text.length;i++){
+    var ch=text[i],next=text[i+1];
+    if(ch==='"'&&quoted&&next==='"'){value+='"';i++;continue}
+    if(ch==='"'){quoted=!quoted;continue}
+    if(ch===","&&!quoted){row.push(value);value="";continue}
+    if((ch==="\n"||ch==="\r")&&!quoted){
+      if(ch==="\r"&&next==="\n")i++;
+      row.push(value);value="";
+      if(row.some(function(cell){return cell.trim()!==""}))rows.push(row);
+      row=[];continue;
+    }
+    value+=ch;
+  }
+  if(value!==""||row.length){row.push(value);if(row.some(function(cell){return cell.trim()!==""}))rows.push(row)}
+  return rows;
+}
+function loadSheet(){
+  if(SHEET_ID==="YOUR_SHEET_ID"){
+    sheetStatus.hidden=false;
+    sheetStatus.textContent="Google Sheet সংযোগ করতে script-এ SHEET_ID বসান।";
+    sheetTable.hidden=true;sheetPagination.hidden=true;return;
+  }
+  sheetStatus.textContent="তালিকা লোড হচ্ছে...";
+  sheetTable.hidden=true;
+  sheetPagination.hidden=true;
+  sheetSummary.textContent="";
+  var callbackName="googleSheetCallback_"+Date.now();
+  var script=document.createElement("script");
+  var timer=setTimeout(function(){
+    delete window[callbackName];
+    if(script.parentNode)script.parentNode.removeChild(script);
+    sheetStatus.hidden=false;
+    sheetStatus.textContent="Google Sheet লোড করা যায়নি। Sheet public আছে কি না দেখুন।";
+  },15000);
+  window[callbackName]=function(data){
+    clearTimeout(timer);
+    if(script.parentNode)script.parentNode.removeChild(script);
+    delete window[callbackName];
+    if(!data||!data.table||!data.table.cols)throw new Error("Google Sheet-এ কোনো data নেই");
+    var columns=data.table.cols.map(function(col){return col.label||""});
+    var rows=data.table.rows.map(function(row){
+      return columns.map(function(_,index){
+        var cell=row.c&&row.c[index];
+        return cell&&cell.v!=null?String(cell.v):"";
+      });
+    });
+    var preferred=["name","amount","remarks","address"];
+    var order=preferred.map(function(name){
+      for(var index=0;index<columns.length;index++){
+        if(columns[index].toLowerCase().trim()===name)return index;
+      }
+      return -1;
+    }).filter(function(index){return index>=0});
+    columns=order.map(function(index){return columns[index]});
+    rows=rows.map(function(row){return order.map(function(index){return row[index]||""})});
+    rows=rows.filter(function(row){
+      return !row.every(function(value,index){
+        return String(value).trim().toLowerCase()===String(columns[index]).trim().toLowerCase();
+      });
+    });
+    sheetColumns=columns;sheetRows=rows;sheetFilteredRows=rows.slice();sheetPage=1;
+    renderSheetPage();
+    sheetTable.hidden=false;
+    sheetStatus.textContent="";
+  };
+  script.onerror=function(){
+    clearTimeout(timer);
+    delete window[callbackName];
+    sheetStatus.hidden=false;
+    sheetStatus.textContent="Google Sheet লোড করা যায়নি। Sheet public আছে কি না দেখুন।";
+  };
+  script.src="https://docs.google.com/spreadsheets/d/"+encodeURIComponent(SHEET_ID)+
+    "/gviz/tq?tqx=responseHandler:"+callbackName+"&gid="+encodeURIComponent(SHEET_GID);
+  document.body.appendChild(script);
+}
+$("sheetPrevious").onclick=function(){if(sheetPage>1){sheetPage--;renderSheetPage()}};
+$("sheetNext").onclick=function(){
+  if(sheetPage<Math.max(1,Math.ceil(sheetFilteredRows.length/sheetPageSize))){sheetPage++;renderSheetPage()}
+};
+sheetSearch.oninput=function(){
+  filterAndSortSheet();
+};
+sheetSort.onchange=filterAndSortSheet;
+function filterAndSortSheet(){
+  var query=sheetSearch.value.trim().toLowerCase();
+  sheetFilteredRows=sheetRows.filter(function(row){
+    return String(row[0]||"").toLowerCase().indexOf(query)>=0;
+  });
+  var direction=sheetSort.value;
+  if(direction!=="none"){
+    sheetFilteredRows.sort(function(first,second){
+      var firstAmount=Number(String(first[1]||"").replace(/,/g,"").replace(/[^\d.-]/g,""));
+      var secondAmount=Number(String(second[1]||"").replace(/,/g,"").replace(/[^\d.-]/g,""));
+      firstAmount=isNaN(firstAmount)?0:firstAmount;
+      secondAmount=isNaN(secondAmount)?0:secondAmount;
+      return direction==="desc"?secondAmount-firstAmount:firstAmount-secondAmount;
+    });
+  }
+  sheetPage=1;
+  renderSheetPage();
+}
+function renderSheetPage(){
+  var totalPages=Math.max(1,Math.ceil(sheetFilteredRows.length/sheetPageSize));
+  var start=(sheetPage-1)*sheetPageSize;
+  var visibleRows=sheetFilteredRows.slice(start,start+sheetPageSize);
+  var html="<thead><tr>"+sheetColumns.map(function(cell){return "<th>"+csvCell(cell)+"</th>"}).join("")+"</tr></thead><tbody>";
+  visibleRows.forEach(function(row){
+    html+="<tr>";
+    sheetColumns.forEach(function(_,index){
+      var value=row[index]||"";
+      if(index===1&&value!==""){
+        value=bn(String(value).replace(/\B(?=(\d{3})+(?!\d))/g,","));
+      }
+      html+="<td data-label=\""+csvCell(sheetColumns[index])+"\">"+csvCell(value)+"</td>";
+    });
+    html+="</tr>";
+  });
+  sheetTable.innerHTML=html+"</tbody>";
+  var totalAmount=sheetRows.reduce(function(total,row){
+    var amount=Number(String(row[1]||"").replace(/,/g,"").replace(/[^\d.-]/g,""));
+    return total+(isNaN(amount)?0:amount);
+  },0);
+  sheetSummary.textContent="মোট নিবেদন: "+bn(totalAmount.toLocaleString("en-US"))+
+    " · মোট এন্ট্রি: "+bn(sheetRows.length)+(sheetFilteredRows.length!==sheetRows.length?" · দেখা যাচ্ছে "+bn(sheetFilteredRows.length)+"টি":"");
+  sheetPagination.hidden=sheetFilteredRows.length<=sheetPageSize;
+  sheetPageInfo.textContent=bn(sheetPage)+" / "+bn(totalPages);
+  sheetPrevious.disabled=sheetPage<=1;
+  sheetNext.disabled=sheetPage>=totalPages;
+}
+$("sheetRefresh").onclick=loadSheet;
+loadSheet();
+
+var revealItems=document.querySelectorAll("section,.card");
+if("IntersectionObserver" in window){
+  [].forEach.call(revealItems,function(item){item.classList.add("reveal")});
+  var revealObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("visible");revealObserver.unobserve(entry.target)}});
+  },{threshold:.12});
+  [].forEach.call(revealItems,function(item){revealObserver.observe(item)});
+}else{
+  [].forEach.call(revealItems,function(item){item.classList.add("visible")});
+}
+if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches===false){
+  var hero=document.querySelector(".hero");
+  hero.addEventListener("pointermove",function(event){
+    var rect=hero.getBoundingClientRect();
+    var x=(event.clientX-rect.left)/rect.width-.5;
+    var y=(event.clientY-rect.top)/rect.height-.5;
+    var art=hero.querySelector(".hero-art");
+    art.style.transform="translate("+x*10+"px,"+y*8+"px)";
+  });
+  hero.addEventListener("pointerleave",function(){hero.querySelector(".hero-art").style.transform=""});
+}
+</script>
+</body>
+</html>
